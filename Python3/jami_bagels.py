@@ -37,6 +37,8 @@ def pick_num():
 	#print(num)
 	
 	random.shuffle(num)
+	if num[0] == '0':
+		return pick_num()
 	
 	#print(num)
 	
@@ -46,7 +48,7 @@ def verify_valid_response():
 	guess = input('Select a number >')
 	if guess.isdigit():
 		guess = int(guess)
-		if guess >= 100 or guess <= 999:
+		if guess >= 100 and guess <= 999:
 			return str(guess)
 	
 	return verify_valid_response()
@@ -74,6 +76,11 @@ def check_guess(guess, num):
 	
 	
 #print(pick_num())
+
+# for i in range(1000):
+# 	num = pick_num()
+# 	if (num[0] == '0'):
+# 		print (num)
 
 play_game()
 
