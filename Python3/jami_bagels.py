@@ -9,14 +9,14 @@ def play_game():
 	print("If a digit is in the same place as my number, I'll say Fermi or F.\n")
 	print("Guess a number to begin")
 	mystery_num = pick_num()
-	print(mystery_num)
+	# print(mystery_num)
 	correct = False	
 	while not correct:
 		#Ask player to guess
 		player_guess = verify_valid_response()
 		#print result
 		result = check_guess(player_guess, mystery_num)
-		if result == "FFF":
+		if result == "F F F ":
 			#if FFF set correct to True
 			correct = True
 			print('Fermi, Fermi, Fermi!')
@@ -24,7 +24,7 @@ def play_game():
 		elif result == "B":
 			print('Bagels, Sadly none of those digits are in my number')
 		else:
-			print(result+ '. So close, you should try again.')
+			print(result+ '  So close, you should try again.')
 		
 	
 
@@ -45,7 +45,7 @@ def pick_num():
 	return num[0:3]
 	
 def verify_valid_response():
-	guess = input('Select a number >')
+	guess = input('Select a number >').strip()
 	if guess.isdigit():
 		guess = int(guess)
 		if guess >= 100 and guess <= 999:
@@ -67,9 +67,9 @@ def check_guess(guess, num):
 	else:
 		result = ""
 		for f in range(0, fermi):
-			result += 'F'
+			result += 'F '
 		for p in range (0, pico):
-			result += 'P'
+			result += 'P '
 		return result
 		
 		
@@ -82,5 +82,15 @@ def check_guess(guess, num):
 # 	if (num[0] == '0'):
 # 		print (num)
 
-play_game()
+while True:
+	play_game()
+	play_again = input('Would you like to play again? Y or N > ')
+	if play_again.upper() == 'Y' or play_again.lower() == 'yes':
+		pass
+		print()
+		print()
+	else:
+		print('Thank you for playing')
+		break
+
 
