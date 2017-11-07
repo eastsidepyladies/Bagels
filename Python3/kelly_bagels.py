@@ -1,3 +1,14 @@
+
+import random
+number = ''.join(random.sample("0123456789", 3))
+print(number)
+split_num = [int(char) for char in str(number)]
+print(split_num)
+
+
+
+# Random number generation
+
 # from random import randint
 # def random_with_N_digits(n):
 #     range_start = 10**(n-1)
@@ -17,7 +28,10 @@
 # shuffle(l)
 # n = l[0] + 10 * (l[1] + 10 * (l[2] + 10 * l[3]))
 
-import random
-num = [0,1,2,3,4,5,6,7,8,9]
-x = random.shuffle(num)
-y = random.shuffle(num)
+# import random
+#
+# num = []
+# num = [0,1,2,3,4,5,6,7,8,9]
+# x = random.shuffle(num)
+# y = random.shuffle(num)
+# z = random.shuffle(num)
