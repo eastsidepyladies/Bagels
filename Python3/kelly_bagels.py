@@ -13,6 +13,17 @@ num3 = split_num[2]
 # print(num1, num2, num3)
 
 theenum=(num1*100+num2*10+num3)
+userguess = 0
+# create answer array
+answerarray = []
+
+
+while theenum != userguess:
+    x, y, z = input("Pick 3 non-repeating numbers")
+    x = int(x)
+    y = int(y)
+    z = int(z)
+    userguess = (a*100+b*10+c)
 print(theenum)
 
 userguess = int(input("Pick a number!"))
