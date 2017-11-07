@@ -52,12 +52,14 @@ def valid_number(guess):
     
 # returns a three digit number, with unique random digits
 def get_random_number():
-    numbers = random.sample(range(10), 3)
+    numbers_array = random.sample(range(10), 3)
     number = ''.join(map(str,numbers))
     return number
 
 
 def main():
+    user = 0
+    comp = 0
     play = "yes"
     while play == "yes":
         print("I am thinking of a 3-digit number. Try to guess what it is")
@@ -77,10 +79,16 @@ def main():
                 print(clue)
                 # if user guesses correct number, the for loop breaks
                 if clue =="You win! Congrats!":
+                    user+=1
+                    print("Your points: " + str(user) + " Computer's points: " + str(comp))
                     break
                 
             else:
                 print ("Invalid input.. Try Again")
+                if i == 10:
+                    comp+=1
+                    print("Haha! You lose!")
+                    print("Your points: " + str(user) + " Computer's points: " + str(comp))
                 
         play = another_game()
         
