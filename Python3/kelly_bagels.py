@@ -2,8 +2,31 @@
 import random
 number = ''.join(random.sample("0123456789", 3))
 print(number)
-split_num = [int(char) for ch'ar in str(number)]
+split_num = [int(char) for char in str(number)]
 print(split_num)
+
+num1 = split_num[0]
+num2 = split_num[1]
+num3 = split_num[2]
+
+# print("lookie here!")
+# print(num1, num2, num3)
+
+theenum=(num1*100+num2*10+num3)
+print(theenum)
+
+userguess = int(input("Pick a number!"))
+
+if theenum == userguess:
+    print("You've got it!")
+else:
+    print("Wrong!")
+
+
+
+
+
+
 
 
 
