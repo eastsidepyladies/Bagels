@@ -13,18 +13,14 @@ def play_game():
 	correct = False	
 	while not correct:
 		#Ask player to guess
-		guess = input('Select a number >')
-		guess = int(guess)
-		while guess < 100 or guess > 999:
-			guess = input('Select a 3 digit number >')
-			guess = int(guess)
+		player_guess = verify_valid_response()
 		#print result
-		result = player_guess(guess, mystery_num)
+		result = check_guess(player_guess, mystery_num)
 		if result == "FFF":
 			#if FFF set correct to True
 			correct = True
 			print('Fermi, Fermi, Fermi!')
-			print('Congratulations!, you guessed the correct number of ' + str(guess))
+			print('Congratulations!, you guessed the correct number of ' + player_guess)
 		elif result == "B":
 			print('Bagels, Sadly none of those digits are in my number')
 		else:
@@ -46,8 +42,16 @@ def pick_num():
 	
 	return num[0:3]
 	
-def player_guess(guess, num):
-	guess = str(guess)
+def verify_valid_response():
+	guess = input('Select a number >')
+	if guess.isdigit():
+		guess = int(guess)
+		if guess >= 100 or guess <= 999:
+			return str(guess)
+	
+	return verify_valid_response()
+	
+def check_guess(guess, num):
 	pico = 0
 	fermi = 0
 	for index in range(0, 3):
