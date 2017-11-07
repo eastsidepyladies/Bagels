@@ -2,7 +2,7 @@
 import random
 number = ''.join(random.sample("0123456789", 3))
 print(number)
-split_num = [int(char) for char in str(number)]
+split_num = [int(char) for ch'ar in str(number)]
 print(split_num)
 
 
