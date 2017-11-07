@@ -9,9 +9,15 @@ Created on Mon Nov  6 19:09:49 2017
 # importing the libraries
 import random
 
-num = [0,1,2,3,4,5,6,7,8,9]
-numbers = random.sample(range(10), 3)
-print(int(''.join(map(str,numbers))))
+def valid_number(guess):
+    nums = '0 1 2 3 4 5 6 7 8 9'.split()
+    if guess == "":
+        return False
+    for i in guess:
+        if i not in nums:
+            return False
+    return True
+    
 
 def get_random_number():
     numbers = random.sample(range(10), 3)
@@ -28,5 +34,11 @@ def main():
     
     number = get_random_number()
     print("I have thought up a number. You have 10 guesses to get it")
+    for i in range(0,13):
+        guess = input("Guess #" + i + ": ")
+        if valid_number(guess):
+            # compare user's guess with random number and return a clue
+        else:
+            print ("Invalid number.. Try Again")
     
 if __name__ == "__main__": main()
