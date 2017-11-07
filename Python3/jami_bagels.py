@@ -10,8 +10,12 @@ def play_game():
 	print("Guess a number to begin")
 	mystery_num = pick_num()
 	correct = False
+	guess = 0
 	while not correct:
 		#Ask player to guess
+		while guess < 100 or guess > 999:
+			guess = input('Select a 3 digit number >')
+			guess = int(guess)
 		#print result
 		#if FFF set correct to True
 		correct = True
@@ -30,6 +34,10 @@ def pick_num():
 	#print(num)
 	
 	return num[0:3]
+	
+def player_guess(guess, num):
+	pass
+	
 	
 #print(pick_num())
 
